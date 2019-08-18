@@ -42,20 +42,6 @@ class HelpMeActivity : AppCompatActivity() {
         //val pno=sharedPreference.getString("pno","")
         sendIKON(v)
 
-        Homesick = findViewById(R.id.radioButton10) as RadioButton;
-        Lonely = findViewById(R.id.radioButton20) as RadioButton;
-        Depressed = findViewById(R.id.radioButton30) as  RadioButton;
-        Ragged = findViewById(R.id.radioButton40) as RadioButton;
-
-        if (Homesick.isChecked)
-            msg = "Feeling Homesick"
-        else if (Lonely.isChecked)
-            msg = "Feeling Lonely"
-        else if (Depressed.isChecked)
-            msg = "Feeling Depressed"
-        else if (Ragged.isChecked)
-            msg = "Being Ragged"
-
 
 /*
         doAsync {
@@ -74,9 +60,27 @@ class HelpMeActivity : AppCompatActivity() {
     }
 
     fun sendIKON(v: View) {
+        var message = editText3.text.toString()
+
+        Homesick = findViewById(R.id.radioButton10) as RadioButton;
+        Lonely = findViewById(R.id.radioButton20) as RadioButton;
+        Depressed = findViewById(R.id.radioButton30) as  RadioButton;
+        Ragged = findViewById(R.id.radioButton40) as RadioButton;
+
+        if (Homesick.isChecked)
+            message = "Feeling Homesick"
+        else if (Lonely.isChecked)
+            message = "Feeling Lonely"
+        else if (Depressed.isChecked)
+            message = "Feeling Depressed"
+        else if (Ragged.isChecked)
+            message = "Being Ragged"
+
+
+
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val uid=sharedPreference.getString("pno","")
-        var msg="Help Me, Phone-No="+uid+". Message= "+editText3.text.toString()
+        var msg="Help Me, Phone-No="+uid+". Message= "+ message
         val mobiles = "9886539400"
         val senderId = "NITKHS"
 

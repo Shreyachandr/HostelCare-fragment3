@@ -74,9 +74,26 @@ class HelpMyFriendActivity : AppCompatActivity() {
     }
 
     fun sendIKON(v: View) {
+
+        var message=editText5.text.toString()
+
+        Homesick = findViewById(R.id.radioButton10) as RadioButton;
+        Lonely = findViewById(R.id.radioButton20) as RadioButton;
+        Depressed = findViewById(R.id.radioButton30) as  RadioButton;
+        Ragged = findViewById(R.id.radioButton40) as RadioButton;
+
+        if (Homesick.isChecked)
+            message = "Feeling Homesick"
+        else if (Lonely.isChecked)
+            message = "Feeling Lonely"
+        else if (Depressed.isChecked)
+            message = "Feeling Depressed"
+        else if (Ragged.isChecked)
+            message = "Being Ragged"
+
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val uid=sharedPreference.getString("pno","")
-        var msg="Help My Friend, Phone-No="+uid+". Message= "+editText3.text.toString()
+        var msg="Help My Friend, Phone-No="+uid+". Message= "+message
         val mobiles = "9886539400"
         val senderId = "NITKHS"
 
